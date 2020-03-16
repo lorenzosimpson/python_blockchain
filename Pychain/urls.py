@@ -1,0 +1,31 @@
+"""Pychain URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from django.conf.urls import url
+from blockchain import views
+from blockchain.views import *
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    url('^full_chain$', views.full_chain, name="full_chain"),
+    url('^mine$', views.mine, name="mine"),
+    url('^last_block$', views.last_block, name='last_block'),
+    url('^transactions/new$', views.receive_transaction, name="receive_transaction"), #New
+#     url('^is_valid$', views.is_valid, name="is_valid"), #New
+#     url('^connect_node$', views.connect_node, name="connect_node"), #New
+#     url('^replace_chain$', views.replace_chain, name="replace_chain"), #New
+ ]
