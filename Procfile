@@ -1,0 +1,1 @@
+web: gunicorn Pychain.wsgi --log-file -

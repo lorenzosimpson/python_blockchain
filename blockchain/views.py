@@ -35,11 +35,11 @@ class Blockchain(object):
         '''
         day = date.today().strftime("%d/%m/%Y")
         self.current_transactions.append({
-                                            'sender': sender,
-                                            'recipient': recipient,
-                                            'amount': amount,
-                                            'date': day
-                                        })
+            'sender': sender,
+            'recipient': recipient,
+            'amount': amount,
+            'date': day
+        })
         return self.last_block['index'] + 1
 
     def new_block(self, proof, previous_hash=None):
